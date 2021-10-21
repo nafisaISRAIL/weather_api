@@ -34,14 +34,14 @@ class ValidateData(object):
 
     def validate_country_code(self):
         if not self.country_code:
-            self.errors['country_code'] = 'Where country_code?'
+            self.errors['country_code'] = 'Country code was not provided.'
             return
         if len(self.country_code) != 2:
-            self.errors['country_code'] = "The length of country_code shoud be equal to 2"
+            self.errors['country_code'] = "The length of the country code must be 2."
             return
 
         if self.country_code.upper() not in COUNTRIES:
-            self.errors['country_code'] = 'Wrong country_code'
+            self.errors['country_code'] = 'Wrong country code.'
             return
         self.country_code = self.country_code.upper()
 
@@ -58,7 +58,7 @@ class ValidateData(object):
             return
 
         if datetime.now().date() > date.date():
-            self.errors['forecast_date'] = 'Date shoud be greather then or equal today'
+            self.errors['forecast_date'] = 'Date must be greater than or equal to the current date.'
             return
         # weather api allowes only 10 days feature weather
         self.days = min((date.date() - datetime.now().date()).days, self.days)
