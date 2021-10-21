@@ -13,7 +13,7 @@ It is a simple Django application that returns the forecast mood ('good', 'soso'
 
 ```python
 # the key of third-part weather API
-export WEATHER_API_KEY
+export WEATHER_API_KEY=<your-key>
 ```
 ```python
 # add migrations to DB

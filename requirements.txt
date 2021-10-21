@@ -1,0 +1,4 @@
+Django==3.2.8
+django-redis==5.0.0
+requests==2.26.0
+mock==4.0.3
