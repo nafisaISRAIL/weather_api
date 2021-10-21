@@ -65,8 +65,8 @@ class ValidateData(object):
         return
 
     def validate_connection(self):
-        test_url = "?key={KEY}&q=Lindon"
-        r = requests.get(WEATHER_API_URL + test_url)
+        test_query_params = "?key={KEY}&q=Lindon"
+        r = requests.get(WEATHER_API_URL + test_query_params)
         if r.status_code != 200:
             self.errors['weather_api'] = r.json()
             return
@@ -102,7 +102,7 @@ class ValidateData(object):
     def connect_to_weather_api(self, url):
         response = requests.get(url)
         data = response.json()
-        if response.status_code == 401:
+        if response.status_code != 200:
             self.errors['weather_api'] = data
             return
         else:
