@@ -80,7 +80,7 @@ class ValidateData(object):
 
             latitude, langitude = COUNTRIES[self.country_code]
 
-            query_params = f'?key={KEY}&day={self.date}&q={latitude},{langitude}'
+            query_params = f'?key={KEY}&day={self.day}&q={latitude},{langitude}'
 
             weather_api_url = WEATHER_API_URL + query_params
             avg_day_temperature = self.connect_to_weather_api(weather_api_url)

@@ -113,7 +113,7 @@ class APIViewTestCase(TestCase):
 
         self.assertEqual(response.status_code, 400)
         data_errors = response.json()['errors']
-        self.assertEqual(data_errors['forecast_date'], 'Date shoud be greather then or equal today')
+        self.assertEqual(data_errors['forecast_date'], 'Date must be greater than or equal to the current date.')
 
         self.assertEqual(preview_objects, CountryWeather.objects.all().count())
 
